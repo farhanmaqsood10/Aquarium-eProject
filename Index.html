@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Royal Aquarium</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 400 15px/1.8 Montserrat, sans-serif;
+    color: black;
+  }
+  h3, h4 , h2 , h1{
+    margin: 30px 0px 50px 0px;
+    letter-spacing: 10px;      
+    font-size: 20px;
+    color: black;
+  }
+  .container {
+    padding: 80px 120px;
+  }
+  .person {
+    border: 10px solid transparent;
+    margin: 25px;
+    width: 80%;
+    height: 80%;
+    
+  }
+  .person:hover {
+    border-color: #33A1C9;
+  }
+  .carousel-inner img {
+    width: 100%;
+    margin: auto;
+    color: yellow;
+  }
+  .carousel-caption h3 {
+    color: yellow;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+    background: white;
+    color: black;
+  }
+  .bg-1 h3 {color: black;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail p {
+    margin-top: 15px;
+    color: black;
+  }
+  .btn {
+    padding: 10px 20px;
+    background-color: #3299CC;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+    border: 1px solid #3299CC;
+    background-color: white;
+    color: #000;
+  }
+  .modal-header, h4, .close {
+    background-color: #3299CC;
+    color: #fff !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-header, .modal-body {
+    padding: 40px 50px;
+  }
+  .nav-tabs li a {
+    color: lightblue;
+  }
+  #googleMap {
+    width: 100%;
+    height: 400px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }  
+  .navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: lightgrey;
+    border: 0;
+    font-size: 15px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+    color: #38B0DE !important;
+  }
+  .navbar-nav li a:hover {
+    color: black !important;
+  }
+  .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+  }
+  .open .dropdown-toggle {
+    color: white;
+    background-color: #33A1C9;
+  }
+  .dropdown-menu li a {
+    color: white;
+  }
+  .dropdown-menu li a:hover {
+    background-color: grey;
+
+
+
+   
+  }
+  
+  footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+  }
+  footer a {
+    color: #f5f5f5;
+  }
+  footer a:hover {
+    color: #777;
+    text-decoration: none;
+  }  
+  .form-control {
+    border-radius: 0;
+  }
+  textarea {
+    resize: none;
+  }
+  </style>
+</head>
+<body id="Home" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+                               
+      </button>
+      <a class="navbar-brand" href="#Home">Royal Aquarium</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#Home">HOME</a></li>
+        <li><a href="#Gallery">GALLERY</a></li>
+        <li><a href="#OnlineStore">ONLINE STORE</a></li>
+        <li><a href="#Feedback">FEEDBACK</a></li>
+       
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#Feedback">Contact Us</a></li>
+            <li><a href="#OnlineStore">Sale</a></li> 
+          </ul>
+        </li>
+        <li><a href="#OnlineStore"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+
+      
+    </ul>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="https://images2.alphacoders.com/683/683990.jpg">
+        
+        <div class="carousel-caption">
+              </div>      
+      </div>
+
+
+      <div class="item">
+        <img src="https://images5.alphacoders.com/682/682842.jpg">
+        <div class="carousel-caption">
+         
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="https://images6.alphacoders.com/510/510769.jpg">
+        <div class="carousel-caption">
+          
+        </div>      
+      </div>
+    <div class="item">
+        <img src="https://images4.alphacoders.com/709/709203.jpg">
+        <div class="carousel-caption">
+         
+        </div>      
+      </div>
+
+    </div>
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+<br>
+<br>
+<br>
+<!-- Container (The Gallery Section) -->
+<div id="Gallery" class="container text-center">
+  <h3>GALLERY</h3>
+  <p><em>Fish are gill-bearing aquatic craniate animals that lack limbs with digits. They form a sister group to the tunicates, together forming the olfactores. Included in this definition are the living hagfish, lampreys, and cartilaginous and bony fish as well as various extinct related groups.
+
+The earliest organisms that can be classified as fish were soft-bodied chordates that first appeared during the Cambrian period. Although they lacked a true spine, they possessed notochords which allowed them to be more agile than their invertebrate counterparts. Fish would continue to evolve through the Paleozoic era, diversifying into a wide variety of forms. Many fish of the Paleozoic developed external armor that protected them from predators. The first fish with jaws appeared in the Silurian period, after which many (such as sharks) became formidable marine predators rather than just the prey of arthropods.</em></p>
+ <br>
+  
+
+<div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Great White Shark</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="f1.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo" class="collapse">
+        
+        <p>The great white shark (Carcharodon carcharias), also known as the great white, white shark or "white pointer", is a species of large mackerel shark which can be found in the coastal surface waters of all the major oceans. It is notable for its size, with larger female individuals growing to 6.1 m (20 ft) in length and 1,905–2,268 kg (4,200–5,000 lb) in weight at maturity</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Goldfish</strong></p><br>
+      <a href="#demo2" data-toggle="collapse">
+        <img src=" f2.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo2" class="collapse">
+        <p>The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes. It is one of the most commonly kept aquarium fish.
+A relatively small member of the carp family (which also includes the Prussian carp and the crucian carp), the goldfish is native to East Asia. It was first selectively bred in ancient China more than 1,000 years ago, and several distinct breeds have since been developed. Goldfish breeds vary greatly in size, body shape, fin configuration, and coloration (various combinations of white, yellow, orange, red, brown, and black are known).</p>
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Jewelfish</strong></p><br>
+      <a href="#demo3" data-toggle="collapse">
+        <img src="f3.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo3" class="collapse">
+        <p>Hemichromis is a genus of fishes from the cichlid family, known in the aquarium trade as jewel cichlids. Jewel cichlids are native to Africa. Within West Africa, Hemichromis species are found in creeks, streams, rivers and lakes with a variety of water qualities including brackish water lagoons.[1][2]
+
+Maximum size reported for the different species of Hemichromis ranges from 6.5 to 26.5 cm (2.5–10.5 in) in total length.[1][3] Maximum sizes in aquaria tend to be slightly smaller than in the wild.[1]
+
+Many Hemichromis species are brightly coloured, though brighter body colouration is generally evident during breeding. Sexual dimorphism is limited, though male jewel cichlids are typically more brightly coloured and in some species have more pointed anal, ventral and dorsal fins.</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div id="Gallery" class="container text-center">
+<div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Lemon Shark</strong></p><br>
+      <a href="#demo4" data-toggle="collapse">
+        <img src="f4.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo4" class="collapse">
+        
+        <p>The lemon shark (Negaprion brevirostris) is a species of shark from the family Carcharhinidae and is classified as a near-threatened species by the International Union for the Conservation of Nature. Lemon sharks can grow to 3.4 metres (11 ft) in length. They are often found in shallow subtropical waters and are known to inhabit and return to specific nursery sites for breeding. Often feeding at night, these sharks use electroreceptors to find their main source of prey: fish. Lemon sharks enjoy the many benefits of group living such as enhanced communication, courtship, predatory behavior, and protection. This species of shark gives birth to live young, and the females are polyandrous and have a biennial reproductive cycle. Lemon sharks are not thought to be a large threat to humans. The lemon shark's life span is unknown, but the average shark is 25 to 30 years old</p>
+      
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong> Orangespine Unicorn Fish</strong></p><br>
+      <a href="#demo5" data-toggle="collapse">
+        <img src="f5.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo5" class="collapse">
+        <p>The Naso lituratus species can be found in the Indian Ocean and the Pacific Ocean. This species can be easily recognised by two bright orange forward-hooked spines on the caudal peduncle (the tail base), its orange lips and black face mask. The body is brownish grey with yellow nape and there is a broad black band on the dorsal fin. It reaches about 45 cm in length.</p>
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Perch</strong></p><br>
+      <a href="#demo6" data-toggle="collapse">
+        <img src="f6.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="demo6" class="collapse">
+        <p>Perch is a common name for fish of the genus Perca, freshwater gamefish belonging to the family Percidae. The perch, of which three species occur in different geographical areas, lend their name to a large order of vertebrates: the Perciformes, from the Greek: πέρκη (perke), simply meaning perch, and the Latin forma meaning shape. Many species of freshwater gamefish more or less resemble perch, but belong to different genera. In fact, the exclusively saltwater-dwelling red drum is often referred to as a red perch, though by definition perch are freshwater fish. Though many fish are referred to as perch as a common name, to be considered a true perch, the fish must be of the family Percidae.</p>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<div id="Gallery" class="container text-center">
+<div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong> Spade Fish</strong></p><br>
+      <a href="#demo7" data-toggle="collapse">
+        <img src="f7.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo7" class="collapse">
+        
+        <p>Ephippidae is a family containing the spadefishes, with about eight genera and a total of 20 marine species. Well-known species include the Atlantic spadefish (Chaetodipterus faber) and the reef-dwelling genus Platax, the batfishes, which are kept as aquarium fish. They are spade-shaped and laterally compressed, and have very symmetrical, triangular dorsal and anal fins. They are shiny silver with areas of yellow and vertical brown or black banding. The eyes are often located in one of the vertical bands as a method of camouflage. Scuba divers sometimes mistake them for angelfish, which are similar in shape, but not closely related. Other genera in the family are characterized by long, trailing, pointed dorsal and anal fins.</p>
+      
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Redfin Perch</strong></p><br>
+      <a href="#demo8" data-toggle="collapse">
+        <img src="f8.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo8" class="collapse">
+        <p>The European perch (Perca fluviatilis), also known as the common perch, redfin perch, big-scaled redfin, English perch, Eurasian perch, Eurasian river perch, Hatch or in Anglophone parts of Europe, simply the perch, is a predatory species of the freshwater perch native to Europe and northern Asia. The species is a popular quarry for anglers, and has been widely introduced beyond its native area, into Australia, New Zealand, and South Africa. They have caused substantial damage to native fish populations in Australia and have been proclaimed a noxious species in New South Wales</p>
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Sea Dragon</strong></p><br>
+      <a href="#demo9" data-toggle="collapse">
+        <img src="f9.jpg" class="img-circle person" alt="Random Name" width="300" height="300">
+      </a>
+      <div id="demo9" class="collapse">
+        <p>The common seadragon or weedy seadragon (Phyllopteryx taeniolatus) is a marine fish related to the seahorses. Adult common seadragons are a reddish colour, with yellow and purple markings; they have small leaf-like appendages that resemble kelp fronds providing camouflage and a number of short spines for protection.[3][4] Males have narrower bodies and are darker than females.[4] Seadragons have a long dorsal fin along the back and small pectoral fins on either side of the neck, which provide balance.[5] Common seadragons can reach 45 cm (18 in) in length.</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<!-- Container (Online Store Section) -->
+<div id="OnlineStore">
+  <div class="container">
+    <h3 class="text-center" class="display-2" > ONLINE STORE</h3>
+    <h2 class="text-center" class="display-2" > AQUARIUMS</h2>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="aq1.jpg" alt="Paris" width="400" height="300">
+          <p><strong>Hygger Horizon 8 Gallon LED Glass Aquarium Kit For Starters With 7W Power Filter Pump, 18W Colored Led Light, Wide View Curved Shape Fish Tank With Undetachable 3D Rockery Background Decor</strong></p>
+          <p>PKR 82393.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="aq2.jpg" alt="New York" width="400" height="300">
+          <p><strong>Tetra ColorFusion Aquarium 20 Gallon Fish Tank Kit, Includes LED Lighting And Decor</strong></p>
+          <p>
+PKR 111437.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="aq3.jpg" alt="San Francisco" width="400" height="300">
+          <p><strong>Marineland Contour 3 Aquarium Kit 3 Gallons, Rounded Glass Corners, Includes LED Lighting</strong></p>
+          <p>PKR 43641.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="OnlineBooking" class="bg-1">
+    <div class="container">
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="aq4.jpg" alt="Paris" width="400" height="300">
+          <p><strong>Aqueon LED Minibow Aquarium Starter Kits With LED Lighting, 1 Gallon, Black</strong></p>
+          <p>PKR 15005.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="aq5.jpg" alt="New York" width="400" height="300">
+          <p><strong>Tetra Aquarium 20 Gallon Fish Tank Kit, Includes LED Lighting And Decor</strong></p>
+          <p>PKR 106332.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="aq6.jpg" alt="San Francisco" width="400" height="300">
+          <p><strong>Aqueon Betta Falls Kit Black One Size</strong></p>
+          <p>PKR 22008.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="text-center" class="display-2" > EVENTS </h2>
+  <div id="OnlineBooking" class="bg-1">
+  <div class="container">
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="e1.jpg" alt="Paris" width="400" height="300">
+          <p><strong>Sips Under the Sea Lite: Tacky Sweater</strong></p>
+          <p>Join us for extended hours, exclusively for our 21+ guests! A quieter and safety-focused version of our popular Sips Under the Sea experience; enjoy a one-of-a-kind, socially distanced night at the Aquarium. Experience exploring our galleries in a more intimate adult setting. Capacity is limited, face coverings are required, and the night is yours!/</p>
+          <p>Only For Children</p>
+          <p>EVERY NIGHT</p>
+          <p>
+          TIMING:8:00PM TO 11:00PM</p>
+          <p>PKR 2500.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Get Ticket</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="e2.jpg" alt="New York" width="400" height="300">
+          <p><strong>Yoga by the Water</strong></p>
+          <p>Break a sweat at the most unique and inspiring fitness studio Atlanta has to offer – Georgia Aquarium!
+
+Yoga by the Water offers socially distant yoga classes led by local instructors which are designed to challenge students of all experience levels. Sessions take place in our magnificent Oceans Ballroom, offering incredible views of manta rays and whale sharks while you challenge your mind and body. If your fitness goal is to become a happier and healthier version of yourself, this is the studio for you!</p>
+<p>EVERY MORNING</p>
+<p>TIMING:8:00AM TO 10:00AM</p>
+<p>PKR 3500.00</p>
+
+          <button class="btn" data-toggle="modal" data-target="#myModal">Get Ticket</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="e3.jpg" alt="San Francisco" width="400" height="300">
+          <P><STRONG>Sounds of the SEAson</STRONG></P>
+          <p>Celebrate the holidays during extended hours, exclusively for our 21+ guests. Enjoy a one-of-a-kind socially distanced evening, explore our main galleries, and jingle and jam to the music of two hometown bands.
+
+Sleigh bells ring in our atrium with Singer-songwriter Wesley Cook as he performs a set that’s merry and bright. The Bourbon Brothers, featuring American Classic sounds and holiday hits, take the stage in our Arctic ballroom with a spectacular view into our beluga whale habitat.</p>
+<p>EVERY DAY</p>
+<p>TIMING:11:00AM TO 2:00PM</p>
+<p>PKR 1750.00</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Get Ticket</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4><span class="glyphicon glyphicon-shopping-cart"></span>CHECKOUT</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+             
+             
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Full Name</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter Name">
+            </div>
+            <div>
+            	<label for="usrname"><span class="glyphicon glyphicon-map-marker"></span> Address</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter Address">
+            </div>
+            <div>
+            	<label for="usrname"><span class="glyphicon glyphicon-map-marker"></span>State</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter State">
+            </div>
+            <div>
+            	<label for="usrname"><span class="glyphicon glyphicon-map-marker"></span> City</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter City">
+            </div>
+            <div>
+            	<label for="usrname"><span class="glyphicon glyphicon-phone"></span>Phone</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter Phone">
+            </div>
+            <div>
+            	 <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span>Quantity</label>
+            	 <input type="number" class="form-control" id="psw" placeholder="How many?">
+            </div>
+              <button type="submit" class="btn btn-block">Submit 
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+          </button>
+          <p>Need <a href="#">help?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<!-- Container (Feedback Section) -->
+<div id="Feedback" class="container">
+  <h3 class="text-center">FEEDBACK</h3>
+  <p class="text-center"><em>We love our fans!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Fans? Contact Us</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Badar Commercial Area Defence V Defence Housing Authority, Karachi, Karachi City, Sindh 75500</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +923120807875</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: royalaqua@gmail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="Feedback" placeholder="Feedback" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+	
+	<br>
+	<br>
+	<br>
+  
+
+<!-- Image of location/map -->
+ <h3 class="text-center">OUR LOCATION</h3>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2152.859416402871!2d67.04594414570177!3d24.798976391921517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33d95ec4b643d%3A0xea897523d0acaa!2zMjTCsDQ3JzU1LjgiTiA2N8KwMDInNDguNyJF!5e1!3m2!1sen!2s!4v1607029802809!5m2!1sen!2s" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+<!-- Footer -->
+<footer>
+	
+		<center>
+	<a href="https://www.facebook.com/GeorgiaAquarium/" >
+	<img src="https://i.pinimg.com/originals/0d/3b/7a/0d3b7af79ad2b163f759eed5937cd764.png" alt="fb" width="60" class="img-fluid">
+	</a>
+		
+	<a href="https://www.instagram.com/georgiaaquarium/" >	
+	<img src="https://images.vexels.com/media/users/3/137380/isolated/preview/1b2ca367caa7eff8b45c09ec09b44c16-instagram-icon-logo-by-vexels.png" alt="insta" width="60" class="img-fluid  ">
+    </a>	
+		
+		
+	<a href="https://twitter.com/georgiaaquarium" >	
+	<img src="https://i.dlpng.com/static/png/74371_preview.png" alt="twiter" width="60" class="img-fluid">
+    </a>	
+	
+		</center>
+		</footer>
+
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#Home']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+
+</body>
+</html>
